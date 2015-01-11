@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <main>
+
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand logo" href="{{ path('homepage') }}">CM</a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                {{ knp_menu_render('mainMenu', {'style': 'navbar' }) }}
+            </div>
+        </nav>
+
+        <div class="content">
+            {% block main %}{% endblock %}
+        </div>
+    </main>
+
+{% endblock %}
