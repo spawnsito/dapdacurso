@@ -1,0 +1,32 @@
+{% extends '::simple_layout.html.twig' %}
+{% block main %}
+    <section>
+        <article>
+            <h1>Clientes</h1>
+        </article>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>NIF</th>
+                <th>Nombre</th>
+                <th>Fecha de nacimiento</th>
+                <th>Emails</th>
+                <th>Teléfonos</th>
+                <th>Dirección</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for customer in customers %}
+            <tr>
+                <td>{{ customer.nif }}</td>
+                <td>{{ customer }}</td>
+                <td>{{ customer.dateOfBirth | date('d/m/Y') }}</td>
+                <td>{{ customer.emails | arrayToString }}</td>
+                <td>{{ customer.phones | arrayToString }}</td>
+                <td>{{ customer.address }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

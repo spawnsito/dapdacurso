@@ -17,6 +17,9 @@ class CustomerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('nif', 'text', [
+                'label' => 'NIF',
+            ])
             ->add('name','text', [
                 'label' => 'Nombre'
             ])
@@ -26,7 +29,7 @@ class CustomerType extends AbstractType
             ->add('dateOfBirth', 'date', [
                 'label' => 'Fecha nacimiento',
                 'widget' => 'single_text',
-                'format' => 'd/M/y',
+                'format' => 'dd/MM/yyyy',
                 'attr' => [
                     'placeholder' => 'dd/mm/yyyy'
                 ]
@@ -36,16 +39,17 @@ class CustomerType extends AbstractType
                 'label' => 'Emails',
                 'allow_add' => true,
                 'allow_delete' => true,
+                'error_bubbling' => false,
             ])
             ->add('phones', 'collection', [
                 'type' => 'text',
                 'label' => 'Telefonos',
                 'allow_add' => true,
                 'allow_delete' => true,
+                'error_bubbling' => true,
             ])
-            ->add('address', 'entity', [
-                'label' => 'Direccion',
-                'class' => 'Civieta\AppBundle\Entity\Province'
+            ->add('address', 'addresstype', [
+                'label' => false,
             ]);
     }
 

@@ -2,62 +2,63 @@
 {% block main %}
     <section>
         <article>
+            <h1>{{ title }}</h1>
             <form action="" method="post">
-                <div class="container">
-                    <h1>{{ title }}</h1>
-                    {{ form_errors(customerForm) }}
-                    {{ form_row(customerForm.name) }}
-                    {{ form_row(customerForm.surname) }}
-                    {{ form_row(customerForm.dateOfBirth) }}
+                {{ form_row(customerForm.nif) }}
+                {{ form_row(customerForm.name) }}
+                {{ form_row(customerForm.surname) }}
+                {{ form_row(customerForm.dateOfBirth) }}
 
-                    <div class="form-group">
-                        {{ form_label(customerForm.emails) }}
-                        <a href="#" id="addEmail">+ Email</a>
-                    </div>
-                    <div id='list_emails' class="control_group col-md-12"
-                         data-prototype="{{ form_widget(customerForm.emails.vars.prototype)| e }}">
-                        {% for email in customerForm.emails %}
-
-                            <div class="col-md-6 controls" id="{{ "phone_" ~ loop.index0 }}">
-                                <div class="col-md-4 controls">
-                                    {{ form_widget(email) }}
-                                </div>
-                                <div class="col-md-1 controls">
-                                    <a href="#" class="btn btn-danger"
-                                       data-delete="{{ 'email_' ~ loop.index0 }}"> - Email
-                                    </a>
-                                </div>
-                            </div>
-
-                        {% endfor %}
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(customerForm.phones) }}
-                        <a href="#" id="addPhone">+ Teléfono</a>
-                    </div>
-
-                    <div id='list_phones' class="control_group col-md-12"
-                         data-prototype="{{ form_widget(customerForm.phones.vars.prototype)| e }}">
-                        {% for phone in customerForm.phones %}
-
-                            <div class="col-md-10 controls" id="{{ "phone_" ~ loop.index0 }}">
-                                <div class="col-md-4 controls">
-                                    {{ form_widget(phone) }}
-                                </div>
-                                <div class="col-md-2 controls">
-                                    <a href="#" class="btn btn-danger"
-                                       data-delete="{{ 'phone_' ~ loop.index0 }}"> - Teléfono
-                                    </a>
-                                </div>
-                            </div>
-
-                        {% endfor %}
-
-                    </div>
-                    {{ form_row(customerForm.address) }}
-                    <input type="submit" value="Guardar" class="btn btn-primary"/>
-                    {{ form_row(customerForm._token) }}
+                <div class="form-group">
+                    {{ form_label(customerForm.emails) }}
+                    <a href="#" id="addEmail">+ Email</a>
                 </div>
+                <div id='list_emails' class="control_group col-md-12"
+                     data-prototype="{{ form_widget(customerForm.emails.vars.prototype)| e }}">
+                    {% for email in customerForm.emails %}
+
+                        <div class="col-md-6 controls" id="{{ "email_" ~ loop.index0 }}">
+                            <div class="col-md-10 controls">
+                                {{ form_widget(email) }}
+                            </div>
+                            <div class="col-md-2 controls">
+                                <a href="#" class="btn btn-danger"
+                                   data-delete="{{ 'email_' ~ loop.index0 }}"> - Email
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="col-md-12 has-error">
+                    {{ form_errors(customerForm.emails) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(customerForm.phones) }}
+                    <a href="#" id="addPhone">+ Teléfono</a>
+                </div>
+
+                <div id='list_phones' class="control_group col-md-12"
+                     data-prototype="{{ form_widget(customerForm.phones.vars.prototype)| e }}">
+                    {% for phone in customerForm.phones %}
+
+                        <div class="col-md-5 controls" id="{{ "phone_" ~ loop.index0 }}">
+                            <div class="col-md-10 controls">
+                                {{ form_widget(phone) }}
+                            </div>
+                            <div class="col-md-2 controls">
+                                <a href="#" class="btn btn-danger"
+                                   data-delete="{{ 'phone_' ~ loop.index0 }}"> - Teléfono
+                                </a>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+                {{ form_row(customerForm.address) }}
+                <input type="submit" value="Guardar" class="btn btn-primary"/>
+                {{ form_row(customerForm._token) }}
             </form>
         </article>
     </section>

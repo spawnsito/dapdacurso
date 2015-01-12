@@ -4,6 +4,14 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.addresstype:
+        class: Civieta\AppBundle\Form\Types\AddressType
+        tags:
+            - { name: form.type, alias: addresstype }
+
+    app.appextension:
+        class: Civieta\AppBundle\Twig\AppExtension
+        calls:
+            - [initRuntime, [@twig]]
+        tags:
+            - { name: twig.extension }

@@ -8,6 +8,7 @@
 namespace Civieta\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Address
@@ -29,26 +30,37 @@ class Address
     /**
      * @var string
      * @ORM\Column()
+     * @Assert\NotBlank(message="Introduzca la dirección completa")
      */
     private $completeAddress;
 
     /**
      * @var Province
      * @ORM\ManyToOne(targetEntity="Province")
+     * @Assert\NotBlank(message="Seleccione una provincia")
      */
     private $province;
 
     /**
      * @var string
      * @ORM\Column()
+     * @Assert\NotBlank(message="Introduzca la población de residencia")
      */
     private $town;
 
     /**
      * @var integer
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Introduzca el código postal")
      */
     private $postalCode;
+
+    function __toString()
+    {
+        return sprintf('%s %s %s (%s)',
+            $this->completeAddress, $this->postalCode, $this->getTown(),
+            $this->province);
+    }
 
     /**
      * @return int

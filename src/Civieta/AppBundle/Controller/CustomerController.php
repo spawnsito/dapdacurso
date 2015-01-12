@@ -12,6 +12,7 @@ use Civieta\AppBundle\Form\Types\CustomerType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -20,17 +21,34 @@ use Symfony\Component\HttpFoundation\Request;
 class CustomerController extends Controller
 {
     /**
+     * @param Request $request
+     * @Route("/show", name="show_customers")
+     */
+    public function showCustomers(Request $request)
+    {
+        $repository = $this->get('doctrine')->getRepository('AppBundle:Customer');
+        $customers = $repository->findAll();
+
+        return $this->render('::Customer/customers.html.twig', ['customers' => $customers]);
+    }
+
+    /**
      * @Route("/new", name="create_customer")
      * @Method("GET|POST")
      */
-    public function createCustomer(Request $request)
+    public function createCustomerAction(Request $request)
     {
         $customer = new Customer();
         $customerForm = $this->createForm(new CustomerType(), $customer);
 
         $customerForm->handleRequest($request);
         if ($customerForm->isValid()) {
-            ldd($customer);
+            $manager = $this->get('doctrine')->getManager();
+
+            $manager->persist($customer);
+            $manager->flush();
+
+            return $this->redirect($this->generateUrl('show_customers'));
         }
         
         return $this->render('::Customer/customer.html.twig', [

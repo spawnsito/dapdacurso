@@ -15,6 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @package Civieta\AppBundle\Entity
  * @ORM\Entity()
+ * @ORM\Table(indexes={@ORM\Index(columns={"nif"}, name="fk_nif")})
  */
 class Customer 
 {
@@ -28,28 +29,36 @@ class Customer
 
     /**
      * @var string
+     * @ORM\Column(length=9)
+     * @Assert\NotBlank(message="NIF obligatorio")
+     * @Assert\Regex(pattern="/(\d{8})([-]?)([A-Z]{1})/", message="El NIF no es válido. Ej: 13131313X")
+     */
+    private $nif;
+
+    /**
+     * @var string
      * @ORM\Column()
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Introduce el nombre del cliente")
      */
     private $name;
 
     /**
      * @var string
-     * @ORM\Column()
-     * @Assert\NotBlank()
+     * @ORM\Column(nullable=true)
      */
     private $surname;
 
     /**
      * @var \DateTime
      * @ORM\Column(type="date")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Fecha de nacimiento obligatoria")
      */
     private $dateOfBirth;
 
     /**
      * @var array<string>
      * @ORM\Column(type="array")
+     * @Assert\Count(min="1", minMessage="Añade al menos un email")
      */
     private $emails;
 
@@ -61,10 +70,15 @@ class Customer
 
     /**
      * @var Address
-     * @ORM\OneToOne(targetEntity="Address")
-     * @Assert\NotBlank()
+     * @ORM\OneToOne(targetEntity="Address", cascade={"persist"})
+     * @Assert\Valid()
      */
     private $address;
+
+    function __toString()
+    {
+        return sprintf('%s %s', $this->name, $this->surname);
+    }
 
     /**
      * @return int
@@ -80,6 +94,22 @@ class Customer
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNif()
+    {
+        return $this->nif;
+    }
+
+    /**
+     * @param string $nif
+     */
+    public function setNif($nif)
+    {
+        $this->nif = $nif;
     }
 
     /**
