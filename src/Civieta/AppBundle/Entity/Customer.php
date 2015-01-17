@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Class Customer
  *
  * @package Civieta\AppBundle\Entity
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Civieta\AppBundle\Repository\CustomerRepository")
  * @ORM\Table(indexes={@ORM\Index(columns={"nif"}, name="fk_nif")})
  */
 class Customer 
@@ -74,6 +74,11 @@ class Customer
      * @Assert\Valid()
      */
     private $address;
+
+    function __construct()
+    {
+    }
+
 
     function __toString()
     {

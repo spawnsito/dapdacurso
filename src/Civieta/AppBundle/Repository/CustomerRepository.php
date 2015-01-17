@@ -7,6 +7,7 @@
 
 namespace Civieta\AppBundle\Repository;
 
+use Doctrine\DBAL\LockMode;
 use Doctrine\ORM\EntityRepository;
 
 class CustomerRepository extends EntityRepository
@@ -21,4 +22,19 @@ class CustomerRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    public function findCompleteCustomer($id)
+    {
+        $dql = $this->createQueryBuilder('c')
+            ->addSelect('a', 'p')
+            ->join('c.address', 'a')
+            ->join('a.province', 'p')
+            ->andWhere('c.id = :id')
+            ->setParameter('id', $id);
+
+        $query = $dql->getQuery();
+
+        return $query->getSingleResult();
+    }
+
 }

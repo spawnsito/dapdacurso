@@ -36,7 +36,7 @@ class AddressType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-           'data_class' => 'Civieta\AppBundle\Entity\Address'
+           'data_class' => 'Civieta\AppBundle\Entity\Address',
         ]);
     }
 

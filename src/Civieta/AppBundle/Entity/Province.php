@@ -23,13 +23,13 @@ class Province
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      * @ORM\Column(type="string")
      */
-    public $name;
+    private $name;
 
     function __toString()
     {

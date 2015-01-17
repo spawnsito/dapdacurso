@@ -9,6 +9,7 @@ namespace Civieta\AppBundle\Controller;
 
 use Civieta\AppBundle\Entity\Customer;
 use Civieta\AppBundle\Form\Types\CustomerType;
+use Civieta\AppBundle\Repository\CustomerRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -53,6 +54,32 @@ class CustomerController extends Controller
         
         return $this->render('::Customer/customer.html.twig', [
             'title' => 'Crear cliente',
+            'customerForm' => $customerForm->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/edit/{customer}", name="edit_customer")
+     * @Method("GET|POST")
+     */
+    public function editCustomerAction(Request $request,$customer)
+    {
+        /** @var CustomerRepository $repository */
+        $repository = $this->get('doctrine')->getRepository('AppBundle:Customer');
+        $customer = $repository->findCompleteCustomer($customer);
+        $customerForm = $this->createForm(new CustomerType(), $customer);
+
+        $customerForm->handleRequest($request);
+        if ($customerForm->isValid()) {
+            $manager = $this->get('doctrine')->getManager();
+
+            $manager->flush();
+
+            return $this->redirect($this->generateUrl('show_customers'));
+        }
+
+        return $this->render('::Customer/customer.html.twig', [
+            'title' => 'Editar cliente',
             'customerForm' => $customerForm->createView()
         ]);
     }

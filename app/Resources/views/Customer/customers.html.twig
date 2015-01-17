@@ -13,6 +13,7 @@
                 <th>Emails</th>
                 <th>Teléfonos</th>
                 <th>Dirección</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -24,6 +25,7 @@
                 <td>{{ customer.emails | arrayToString }}</td>
                 <td>{{ customer.phones | arrayToString }}</td>
                 <td>{{ customer.address }}</td>
+                <td><a class="btn btn-primary" href="{{ path("edit_customer", {'customer': customer.id}) }}">Editar</a></td>
             </tr>
             {% endfor %}
             </tbody>
