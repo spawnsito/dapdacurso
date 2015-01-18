@@ -50,7 +50,11 @@ class CustomerType extends AbstractType
             ])
             ->add('address', 'addresstype', [
                 'label' => false,
-            ]);
+            ])
+            ->add('fileImage', 'file', [
+                'label' => 'Foto',
+            ])
+        ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

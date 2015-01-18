@@ -42,9 +42,21 @@ class CustomerController extends Controller
         $customer = new Customer();
         $customerForm = $this->createForm(new CustomerType(), $customer);
 
+
         $customerForm->handleRequest($request);
         if ($customerForm->isValid()) {
             $manager = $this->get('doctrine')->getManager();
+
+            if (null !== $customer->getFileImage()) {
+                $imagePath = $this->container->getParameter('upload_path');
+                $filename = $customer->uploadImage('customer', $imagePath);
+
+                if ($customer->getPathImage() && is_file($customer->getPathImage())) {
+                    unlink($imagePath . '/' . $customer->getPathImage());
+                }
+
+                $customer->setPathImage($filename);
+            }
 
             $manager->persist($customer);
             $manager->flush();
@@ -73,6 +85,17 @@ class CustomerController extends Controller
         if ($customerForm->isValid()) {
             $manager = $this->get('doctrine')->getManager();
 
+            if (null !== $customer->getFileImage()) {
+                $imagePath = $this->container->getParameter('upload_path');
+                $filename = $customer->uploadImage('customer', $imagePath);
+
+                if ($customer->getPathImage() && is_file($imagePath . '/' . $customer->getPathImage())) {
+                    unlink($imagePath . '/' . $customer->getPathImage());
+                }
+
+                $customer->setPathImage($filename);
+            }
+
             $manager->flush();
 
             return $this->redirect($this->generateUrl('show_customers'));
@@ -80,7 +103,8 @@ class CustomerController extends Controller
 
         return $this->render('::Customer/customer.html.twig', [
             'title' => 'Editar cliente',
-            'customerForm' => $customerForm->createView()
+            'customerForm' => $customerForm->createView(),
+            'customer' => $customer,
         ]);
     }
 }

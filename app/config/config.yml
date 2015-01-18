@@ -78,3 +78,16 @@ knp_menu:
         template: "BraincraftedBootstrapBundle:Menu:bootstrap.html.twig"
     templating: false
     default_renderer: twig
+
+liip_imagine:
+    driver: gd
+    resolvers:
+        default:
+            web_path: ~
+
+    filter_sets:
+        cache: ~
+        my_thumb:
+            quality: 75
+            filters:
+                thumbnail: { size: [150, 120], mode: outbound }

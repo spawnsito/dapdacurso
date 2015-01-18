@@ -8,6 +8,8 @@
 namespace Civieta\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Translation\Exception\NotFoundResourceException;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -74,6 +76,18 @@ class Customer
      * @Assert\Valid()
      */
     private $address;
+
+    /**
+     * @var string
+     * @ORM\Column()
+     */
+    private $pathImage;
+
+    /**
+     * @var UploadedFile
+     * @Assert\Image(maxSize="3M", maxSizeMessage="La imagen es demasiado grande ({{ size }} {{ suffix }}). Tamaño máximo permitido es {{ limit }} {{ suffix }}.")
+     */
+    private $fileImage;
 
     function __construct()
     {
@@ -211,6 +225,54 @@ class Customer
     public function setAddress($address)
     {
         $this->address = $address;
+    }
+
+    public function uploadImage($prefix, $folder)
+    {
+        if (null === $this->fileImage) {
+            throw new NotFoundResourceException();
+        }
+
+        if (!is_dir($folder)) {
+            throw new \Exception('La carpeta no existe');
+        }
+
+        $destiny = sprintf('%s_%s.%s', $prefix, uniqid(), $this->fileImage->getClientOriginalExtension());
+        $this->fileImage->move($folder, $destiny);
+
+        return $destiny;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPathImage()
+    {
+        return $this->pathImage;
+    }
+
+    /**
+     * @param string $pathImage
+     */
+    public function setPathImage($pathImage)
+    {
+        $this->pathImage = $pathImage;
+    }
+
+    /**
+     * @return UploadedFile
+     */
+    public function getFileImage()
+    {
+        return $this->fileImage;
+    }
+
+    /**
+     * @param UploadedFile $fileImage
+     */
+    public function setFileImage($fileImage)
+    {
+        $this->fileImage = $fileImage;
     }
 
 

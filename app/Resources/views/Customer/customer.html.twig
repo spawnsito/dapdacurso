@@ -3,7 +3,7 @@
     <section>
         <article>
             <h1>{{ title }}</h1>
-            <form action="" method="post">
+            <form action="" method="post" {{ form_enctype(customerForm) }}>
                 {{ form_row(customerForm.nif) }}
                 {{ form_row(customerForm.name) }}
                 {{ form_row(customerForm.surname) }}
@@ -57,6 +57,13 @@
 
                 </div>
                 {{ form_row(customerForm.address) }}
+                {{ form_row(customerForm.fileImage) }}
+                {% if (customer is defined) and (customer.pathImage is not empty) %}
+                    <div class="form-group">
+                        <img src="{{ ("/media/" ~ customer.pathImage) | imagine_filter("my_thumb") }}" alt="{{ customer }}"/>
+                    </div>
+                {% endif %}
+
                 <input type="submit" value="Guardar" class="btn btn-primary"/>
                 {{ form_row(customerForm._token) }}
             </form>
