@@ -7,6 +7,7 @@
         <table class="table">
             <thead>
             <tr>
+                <th></th>
                 <th>NIF</th>
                 <th>Nombre</th>
                 <th>Fecha de nacimiento</th>
@@ -19,6 +20,7 @@
             <tbody>
             {% for customer in customers %}
             <tr>
+                <td><img src="{{ ("/media/" ~ customer.pathImage) | imagine_filter("my_thumb_list") }}" alt="{{ customer }}"/></td>
                 <td>{{ customer.nif }}</td>
                 <td>{{ customer }}</td>
                 <td>{{ customer.dateOfBirth | date('d/m/Y') }}</td>
