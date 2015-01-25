@@ -8,6 +8,7 @@
 namespace Civieta\AppBundle\Form\Types;
 
 
+use Civieta\AppBundle\Form\Subscribers\AddProvinceFieldSubscriber;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -18,18 +19,18 @@ class AddressType extends AbstractType
     {
         $builder
             ->add('completeAddress', 'text', [
-                'label' => 'Dirección completa'
+                'label' => 'Dirección completa',
+                'required' => false
             ])
             ->add('town', 'text', [
-                'label' => 'Población'
+                'label' => 'Población',
+                'required' => false
             ])
             ->add('postalCode', 'text', [
-                'label' => 'Código Postal'
+                'label' => 'Código Postal',
+                'required' => false
             ])
-            ->add('province', 'entity', [
-                'label' => 'Provincia',
-                'class' => 'Civieta\AppBundle\Entity\Province',
-            ])
+            ->addEventSubscriber(new AddProvinceFieldSubscriber())
         ;
     }
 

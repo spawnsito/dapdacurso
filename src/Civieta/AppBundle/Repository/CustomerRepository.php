@@ -16,7 +16,7 @@ class CustomerRepository extends EntityRepository
     {
         $dql = $this->createQueryBuilder('c')
             ->addSelect('a')
-            ->join('c.address', 'a');
+            ->leftJoin('c.address', 'a');
 
         $query = $dql->getQuery();
 
@@ -27,8 +27,8 @@ class CustomerRepository extends EntityRepository
     {
         $dql = $this->createQueryBuilder('c')
             ->addSelect('a', 'p')
-            ->join('c.address', 'a')
-            ->join('a.province', 'p')
+            ->leftJoin('c.address', 'a')
+            ->leftJoin('a.province', 'p')
             ->andWhere('c.id = :id')
             ->setParameter('id', $id);
 

@@ -10,6 +10,8 @@ namespace Civieta\AppBundle\Form\Types;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class CustomerType extends AbstractType
@@ -24,7 +26,8 @@ class CustomerType extends AbstractType
                 'label' => 'Nombre'
             ])
             ->add('surname', 'text', [
-                'label' => 'Apellidos'
+                'label' => 'Apellidos',
+                'required' => false
             ])
             ->add('dateOfBirth', 'date', [
                 'label' => 'Fecha nacimiento',
@@ -53,6 +56,7 @@ class CustomerType extends AbstractType
             ])
             ->add('fileImage', 'file', [
                 'label' => 'Foto',
+                'required' => false,
             ])
         ;
     }

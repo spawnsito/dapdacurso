@@ -1,214 +1,267 @@
 [
-	{
-		"id": 1,
-		"name": "Álava"
-	},
-	{
-		"id": 2,
-		"name": "Albacete"
-	},
-	{
-		"id": 3,
-		"name": "Alicante"
-	},
-	{
-		"id": 4,
-		"name": "Almería"
-	},
-	{
-		"id": 5,
-		"name": "Ávila"
-	},
-	{
-		"id": 6,
-		"name": "Badajoz"
-	},
-	{
-		"id": 7,
-		"name": "Baleares"
-	},
-	{
-		"id": 8,
-		"name": "Barcelona"
-	},
-	{
-		"id": 9,
-		"name": "Burgos"
-	},
-	{
-		"id": 10,
-		"name": "Cáceres"
-	},
-	{
-		"id": 11,
-		"name": "Cádiz"
-	},
-	{
-		"id": 12,
-		"name": "Castellón"
-	},
-	{
-		"id": 13,
-		"name": "Ciudad Real"
-	},
-	{
-		"id": 14,
-		"name": "Córdoba"
-	},
-	{
-		"id": 15,
-		"name": "A Coruña"
-	},
-	{
-		"id": 16,
-		"name": "Cuenca"
-	},
-	{
-		"id": 17,
-		"name": "Girona"
-	},
-	{
-		"id": 18,
-		"name": "Granada"
-	},
-	{
-		"id": 19,
-		"name": "Guadalajara"
-	},
-	{
-		"id": 20,
-		"name": "Guipúzcoa"
-	},
-	{
-		"id": 21,
-		"name": "Huelva"
-	},
-	{
-		"id": 22,
-		"name": "Huesca"
-	},
-	{
-		"id": 23,
-		"name": "Jaén"
-	},
-	{
-		"id": 24,
-		"name": "León"
-	},
-	{
-		"id": 25,
-		"name": "Lleida"
-	},
-	{
-		"id": 26,
-		"name": "La Rioja"
-	},
-	{
-		"id": 27,
-		"name": "Lugo"
-	},
-	{
-		"id": 28,
-		"name": "Madrid"
-	},
-	{
-		"id": 29,
-		"name": "Málaga"
-	},
-	{
-		"id": 30,
-		"name": "Murcia"
-	},
-	{
-		"id": 31,
-		"name": "Navarra"
-	},
-	{
-		"id": 32,
-		"name": "Ourense"
-	},
-	{
-		"id": 33,
-		"name": "Asturias"
-	},
-	{
-		"id": 34,
-		"name": "Palencia"
-	},
-	{
-		"id": 35,
-		"name": "Las Palmas"
-	},
-	{
-		"id": 36,
-		"name": "Pontevedra"
-	},
-	{
-		"id": 37,
-		"name": "Salamanca"
-	},
-	{
-		"id": 38,
-		"name": "S.C.Tenerife"
-	},
-	{
-		"id": 39,
-		"name": "Cantabria"
-	},
-	{
-		"id": 40,
-		"name": "Segovia"
-	},
-	{
-		"id": 41,
-		"name": "Sevilla"
-	},
-	{
-		"id": 42,
-		"name": "Soria"
-	},
-	{
-		"id": 43,
-		"name": "Tarragona"
-	},
-	{
-		"id": 44,
-		"name": "Teruel"
-	},
-	{
-		"id": 45,
-		"name": "Toledo"
-	},
-	{
-		"id": 46,
-		"name": "Valencia"
-	},
-	{
-		"id": 47,
-		"name": "Valladolid"
-	},
-	{
-		"id": 48,
-		"name": "Vizcaya"
-	},
-	{
-		"id": 49,
-		"name": "Zamora"
-	},
-	{
-		"id": 50,
-		"name": "Zaragoza"
-	},
-	{
-		"id": 51,
-		"name": "Ceuta"
-	},
-	{
-		"id": 52,
-		"name": "Melilla"
-	},
-	{
-		"id": 53,
-		"name": "Andorra La Vella"
-	}
+  {
+	"id": 1,
+	"name": "Álava",
+	"autonomousCommunity_id": 16
+  },
+  {
+	"id": 2,
+	"name": "Albacete",
+	"autonomousCommunity_id": 7
+  },
+  {
+	"id": 3,
+	"name": "Alicante",
+	"autonomousCommunity_id": 10
+  },
+  {
+	"id": 4,
+	"name": "Almería",
+	"autonomousCommunity_id": 1
+  },
+  {
+	"id": 5,
+	"name": "Ávila",
+	"autonomousCommunity_id": 8
+  },
+  {
+	"id": 6,
+	"name": "Badajoz",
+	"autonomousCommunity_id": 11
+  },
+  {
+	"id": 7,
+	"name": "Baleares",
+	"autonomousCommunity_id": 4
+  },
+  {
+	"id": 8,
+	"name": "Barcelona",
+	"autonomousCommunity_id": 9
+  },
+  {
+	"id": 9,
+	"name": "Burgos",
+	"autonomousCommunity_id": 8
+  },
+  {
+	"id": 10,
+	"name": "Cáceres",
+	"autonomousCommunity_id": 11
+  },
+  {
+	"id": 11,
+	"name": "Cádiz",
+	"autonomousCommunity_id": 1
+  },
+  {
+	"id": 12,
+	"name": "Castellón",
+	"autonomousCommunity_id": 10
+  },
+  {
+	"id": 13,
+	"name": "Ciudad Real",
+	"autonomousCommunity_id": 7
+  },
+  {
+	"id": 14,
+	"name": "Córdoba",
+	"autonomousCommunity_id": 1
+  },
+  {
+	"id": 15,
+	"name": "A Coruña",
+	"autonomousCommunity_id": 12
+  },
+  {
+	"id": 16,
+	"name": "Cuenca",
+	"autonomousCommunity_id": 7
+  },
+  {
+	"id": 17,
+	"name": "Girona",
+	"autonomousCommunity_id": 9
+  },
+  {
+	"id": 18,
+	"name": "Granada",
+	"autonomousCommunity_id": 1
+  },
+  {
+	"id": 19,
+	"name": "Guadalajara",
+	"autonomousCommunity_id": 7
+  },
+  {
+	"id": 20,
+	"name": "Guipúzcoa",
+	"autonomousCommunity_id": 16
+  },
+  {
+	"id": 21,
+	"name": "Huelva",
+	"autonomousCommunity_id": 1
+  },
+  {
+	"id": 22,
+	"name": "Huesca",
+	"autonomousCommunity_id": 2
+  },
+  {
+	"id": 23,
+	"name": "Jaén",
+	"autonomousCommunity_id": 1
+  },
+  {
+	"id": 24,
+	"name": "León",
+	"autonomousCommunity_id": 8
+  },
+  {
+	"id": 25,
+	"name": "Lleida",
+	"autonomousCommunity_id": 9
+  },
+  {
+	"id": 26,
+	"name": "La Rioja",
+	"autonomousCommunity_id": 13
+  },
+  {
+	"id": 27,
+	"name": "Lugo",
+	"autonomousCommunity_id": 12
+  },
+  {
+	"id": 28,
+	"name": "Madrid",
+	"autonomousCommunity_id": 14
+  },
+  {
+	"id": 29,
+	"name": "Málaga",
+	"autonomousCommunity_id": 1
+  },
+  {
+	"id": 30,
+	"name": "Murcia",
+	"autonomousCommunity_id": 17
+  },
+  {
+	"id": 31,
+	"name": "Navarra",
+	"autonomousCommunity_id": 15
+  },
+  {
+	"id": 32,
+	"name": "Ourense",
+	"autonomousCommunity_id": 12
+  },
+  {
+	"id": 33,
+	"name": "Asturias",
+	"autonomousCommunity_id": 3
+  },
+  {
+	"id": 34,
+	"name": "Palencia",
+	"autonomousCommunity_id": 8
+  },
+  {
+	"id": 35,
+	"name": "Las Palmas",
+	"autonomousCommunity_id": 5
+  },
+  {
+	"id": 36,
+	"name": "Pontevedra",
+	"autonomousCommunity_id": 12
+  },
+  {
+	"id": 37,
+	"name": "Salamanca",
+	"autonomousCommunity_id": 8
+  },
+  {
+	"id": 38,
+	"name": "S.C.Tenerife",
+	"autonomousCommunity_id": 5
+  },
+  {
+	"id": 39,
+	"name": "Cantabria",
+	"autonomousCommunity_id": 6
+  },
+  {
+	"id": 40,
+	"name": "Segovia",
+	"autonomousCommunity_id": 8
+  },
+  {
+	"id": 41,
+	"name": "Sevilla",
+	"autonomousCommunity_id": 1
+  },
+  {
+	"id": 42,
+	"name": "Soria",
+	"autonomousCommunity_id": 8
+  },
+  {
+	"id": 43,
+	"name": "Tarragona",
+	"autonomousCommunity_id": 9
+  },
+  {
+	"id": 44,
+	"name": "Teruel",
+	"autonomousCommunity_id": 2
+  },
+  {
+	"id": 45,
+	"name": "Toledo",
+	"autonomousCommunity_id": 7
+  },
+  {
+	"id": 46,
+	"name": "Valencia",
+	"autonomousCommunity_id": 10
+  },
+  {
+	"id": 47,
+	"name": "Valladolid",
+	"autonomousCommunity_id": 8
+  },
+  {
+	"id": 48,
+	"name": "Vizcaya",
+	"autonomousCommunity_id": 16
+  },
+  {
+	"id": 49,
+	"name": "Zamora",
+	"autonomousCommunity_id": 8
+  },
+  {
+	"id": 50,
+	"name": "Zaragoza",
+	"autonomousCommunity_id": 2
+  },
+  {
+	"id": 51,
+	"name": "Ceuta",
+	"autonomousCommunity_id": 18
+  },
+  {
+	"id": 52,
+	"name": "Melilla",
+	"autonomousCommunity_id": 19
+  },
+  {
+	"id": 53,
+	"name": "Andorra La Vella",
+	"autonomousCommunity_id": 20
+  }
 ]

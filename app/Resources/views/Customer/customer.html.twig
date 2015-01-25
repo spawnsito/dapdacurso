@@ -64,6 +64,7 @@
                     </div>
                 {% endif %}
 
+                <a href="{{ path('show_customers') }}" class="btn btn-danger"> Cancelar </a>
                 <input type="submit" value="Guardar" class="btn btn-primary"/>
                 {{ form_row(customerForm._token) }}
             </form>
@@ -104,6 +105,22 @@
 
             e.preventDefault();
             return false;
+        });
+
+        $("#customer_address_autonomousCommunity").on("change", function() {
+            var value = $(this).find('>option[value='+ this.value +']').attr('data-url');
+            if (value) {
+                $.getJSON(value, function(data) {
+                    var cad = '';
+                    for (var i = 0;i < data.length; i++) {
+                        cad += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    }
+
+                    $("#customer_address_province").html(cad);
+                })
+            } else {
+                $("#customer_address_province").empty();
+            }
         });
     </script>
 {% endblock %}

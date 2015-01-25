@@ -79,7 +79,7 @@ class Customer
 
     /**
      * @var string
-     * @ORM\Column()
+     * @ORM\Column(nullable=true)
      */
     private $pathImage;
 
@@ -145,6 +145,8 @@ class Customer
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -173,10 +175,13 @@ class Customer
 
     /**
      * @param \DateTime $dateOfBirth
+     * @return $this
      */
     public function setDateOfBirth($dateOfBirth)
     {
         $this->dateOfBirth = $dateOfBirth;
+
+        return $this;
     }
 
     /**
@@ -193,6 +198,8 @@ class Customer
     public function setEmails($emails)
     {
         $this->emails = $emails;
+
+        return $this;
     }
 
     /**
@@ -209,6 +216,8 @@ class Customer
     public function setPhones($phones)
     {
         $this->phones = $phones;
+
+        return $this;
     }
 
     /**
@@ -225,6 +234,8 @@ class Customer
     public function setAddress($address)
     {
         $this->address = $address;
+
+        return $this;
     }
 
     public function uploadImage($prefix, $folder)

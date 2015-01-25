@@ -5,6 +5,7 @@ namespace Civieta\AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class DefaultController extends Controller
 {
@@ -16,4 +17,5 @@ class DefaultController extends Controller
     {
         return $this->redirect($this->generateUrl('show_customers'), 301);
     }
+
 }

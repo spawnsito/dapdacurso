@@ -42,7 +42,6 @@ class CustomerController extends Controller
         $customer = new Customer();
         $customerForm = $this->createForm(new CustomerType(), $customer);
 
-
         $customerForm->handleRequest($request);
         if ($customerForm->isValid()) {
             $manager = $this->get('doctrine')->getManager();

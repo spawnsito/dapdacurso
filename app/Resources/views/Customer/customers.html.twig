@@ -20,7 +20,11 @@
             <tbody>
             {% for customer in customers %}
             <tr>
-                <td><img src="{{ ("/media/" ~ customer.pathImage) | imagine_filter("my_thumb_list") }}" alt="{{ customer }}"/></td>
+                <td>
+                    {% if customer.pathImage is not empty %}
+                        <img src="{{ ("/media/" ~ customer.pathImage) | imagine_filter("my_thumb_list") }}" alt="{{ customer }}"/>
+                    {% endif %}
+                </td>
                 <td>{{ customer.nif }}</td>
                 <td>{{ customer }}</td>
                 <td>{{ customer.dateOfBirth | date('d/m/Y') }}</td>

@@ -1,43 +1,35 @@
 <?php
 /**
  * User: Daniel Cruz
- * Date: 11/01/2015
- * Time: 16:16
+ * Date: 24/01/2015
+ * Time: 20:04
  */
 
 namespace Civieta\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use JMS\Serializer\Annotation as JMS;
 
 /**
- * Class Province
+ * Class AutonomousCommunity
  *
  * @package Civieta\AppBundle\Entity
  * @ORM\Entity()
  */
-class Province
+class AutonomousCommunity 
 {
     /**
-     * @var integer
+     * @var int
      * @ORM\Id()
      * @ORM\Column(type="integer")
-     * @JMS\Groups({"province_list"})
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
-     * @ORM\Column(type="string")
-     * @JMS\Groups({"province_list"})
+     * @ORM\Column()
      */
-    public $name;
+    private $name;
 
-    /**
-     * @var AutonomousCommunity
-     * @ORM\ManyToOne(targetEntity="AutonomousCommunity")
-     */
-    public $autonomousCommunity;
 
     function __toString()
     {
@@ -81,24 +73,4 @@ class Province
 
         return $this;
     }
-
-    /**
-     * @return AutonomousCommunity
-     */
-    public function getAutonomousCommunity()
-    {
-        return $this->autonomousCommunity;
-    }
-
-    /**
-     * @param AutonomousCommunity $autonomousCommunity
-     * @return $this
-     */
-    public function setAutonomousCommunity($autonomousCommunity)
-    {
-        $this->autonomousCommunity = $autonomousCommunity;
-
-        return $this;
-    }
-
 }
