@@ -1,0 +1,20 @@
+<table>
+    <tr>
+        <td>Bienvenido {{ customer }}</td>
+    </tr>
+    <tr>
+        <td>Nos complace que se haya registrado en nuestro sistema.</td>
+    </tr>
+    <tr>
+        <td>Sus datos:
+            <ul>
+                <li>{{ customer }}</li>
+                <li>{{ customer.nif }}</li>
+                <li>{{ customer.dateOfBirth | date('d/m/Y') }}</li>
+                <li>{{ customer.emails | arrayToString }}</li>
+                <li>{{ customer.phones | arrayToString }}</li>
+                <li>{{ customer.address }}</li>
+            </ul>
+        </td>
+    </tr>
+</table>

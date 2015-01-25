@@ -15,3 +15,9 @@ services:
             - [initRuntime, [@twig]]
         tags:
             - { name: twig.extension }
+
+    app.welcome_email_listener:
+        class: Civieta\AppBundle\EventListeners\WelcomeEmailListener
+        arguments: [ @mailer, @twig ]
+        tags:
+            - { name: kernel.event_listener, event: app.customer_created, method: onCustomerCreated }

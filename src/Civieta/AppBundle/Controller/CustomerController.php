@@ -8,6 +8,8 @@
 namespace Civieta\AppBundle\Controller;
 
 use Civieta\AppBundle\Entity\Customer;
+use Civieta\AppBundle\Event\CustomerCreatedEvent;
+use Civieta\AppBundle\Events;
 use Civieta\AppBundle\Form\Types\CustomerType;
 use Civieta\AppBundle\Repository\CustomerRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -59,6 +61,9 @@ class CustomerController extends Controller
 
             $manager->persist($customer);
             $manager->flush();
+
+            $eventDispatcher = $this->get('event_dispatcher');
+            $eventDispatcher->dispatch(Events::CUSTOMER_CREATED, new CustomerCreatedEvent($customer));
 
             return $this->redirect($this->generateUrl('show_customers'));
         }
