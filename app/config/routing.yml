@@ -1,7 +1,7 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /{_locale}
 
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"

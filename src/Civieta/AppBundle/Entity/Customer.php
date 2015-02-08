@@ -33,7 +33,7 @@ class Customer
      * @var string
      * @ORM\Column(length=9)
      * @Assert\NotBlank(message="NIF obligatorio")
-     * @Assert\Regex(pattern="/(\d{8})([-]?)([A-Z]{1})/", message="El NIF no es válido. Ej: 13131313X")
+     * @Assert\Regex(pattern="/(\d{8})([-]?)([A-Z]{1})/", message="validator.nif_no_valido")
      */
     private $nif;
 
@@ -85,7 +85,7 @@ class Customer
 
     /**
      * @var UploadedFile
-     * @Assert\Image(maxSize="3M", maxSizeMessage="La imagen es demasiado grande ({{ size }} {{ suffix }}). Tamaño máximo permitido es {{ limit }} {{ suffix }}.")
+     * @Assert\Image(maxSize="1K")
      */
     private $fileImage;
 
