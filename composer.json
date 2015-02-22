@@ -22,7 +22,8 @@
         "knplabs/knp-menu": "~2.0",
         "knplabs/knp-menu-bundle": "~2.0",
         "liip/imagine-bundle": "~1.2",
-        "jms/serializer-bundle": "0.13.*"
+        "jms/serializer-bundle": "0.13.*",
+        "friendsofsymfony/user-bundle": "2.0.x-dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

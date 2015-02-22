@@ -24,20 +24,20 @@ class Province
      * @ORM\Column(type="integer")
      * @JMS\Groups({"province_list"})
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      * @ORM\Column(type="string")
      * @JMS\Groups({"province_list"})
      */
-    public $name;
+    private $name;
 
     /**
      * @var AutonomousCommunity
      * @ORM\ManyToOne(targetEntity="AutonomousCommunity")
      */
-    public $autonomousCommunity;
+    private $autonomousCommunity;
 
     function __toString()
     {

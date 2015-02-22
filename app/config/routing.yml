@@ -1,3 +1,17 @@
+_root_locale:
+    pattern: /{_locale}/
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: show_customers
+        permanent: true
+
+_root:
+    pattern: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: show_customers
+        permanent: true
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

@@ -1,14 +1,37 @@
 security:
-    providers:
-        in_memory:
-            memory: ~
+    encoders:
+        Civieta\AppBundle\Entity\User:
+            algorithm:        sha512
+            encode_as_base64: false
+            iterations:       10
 
     firewalls:
+        app:
+            pattern: ^/[a-z]{2}/
+            provider: users_bd
+            anonymous: ~
+            form_login:
+                login_path: user_login
+                check_path: user_login_check
+            logout:
+                path: user_logout
+
+
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
         default:
-            anonymous: ~
+            pattern: /
+            security: false
 
 
+
+    access_control:
+        - { path: '^/[a-z]{2}/login', roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: '^/[a-z]{2}/', roles: ROLE_USER }
+
+
+    providers:
+        users_bd:
+            entity: { class: AppBundle:User,  property: username }

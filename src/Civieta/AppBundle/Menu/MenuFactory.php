@@ -31,6 +31,11 @@ class MenuFactory
             'label' => 'Crear cliente',
         ]);
 
+        $menu->addChild('logout', [
+            'route' => 'user_logout',
+            'label' => 'Cerrar sesión',
+        ]);
+
         return $menu;
     }
 
