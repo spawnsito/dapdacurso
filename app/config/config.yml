@@ -95,8 +95,10 @@ liip_imagine:
         my_thumb:
             quality: 75
             filters:
-                thumbnail: { size: [150, 120], mode: outbound }
+                thumbnail: { size: [150, 120], mode: inset }
+                background: { size: [150, 120], color: '#FFFFFF' }
         my_thumb_list:
             quality: 75
             filters:
-                thumbnail: { size: [50, 30], mode: outbound }
+                thumbnail: { size: [50, 30], mode: inset }
+                background: { size: [50, 30], color: '#FFFFFF' }

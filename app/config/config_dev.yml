@@ -46,4 +46,4 @@ assetic:
 
 
 swiftmailer:
-    delivery_address: spawnsito@gmail.com
+    delivery_address: %correo_defecto%

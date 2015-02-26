@@ -85,7 +85,7 @@ class Customer
 
     /**
      * @var UploadedFile
-     * @Assert\Image(maxSize="1K")
+     * @Assert\Image(maxSize="2M")
      */
     private $fileImage;
 

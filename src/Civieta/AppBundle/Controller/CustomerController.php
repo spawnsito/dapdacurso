@@ -25,8 +25,9 @@ class CustomerController extends Controller
     /**
      * @param Request $request
      * @Route("/show", name="show_customers")
+     * @Method("GET")
      */
-    public function showCustomers(Request $request)
+    public function showCustomersAction(Request $request)
     {
         $repository = $this->get('doctrine')->getRepository('AppBundle:Customer');
         $customers = $repository->findAll();
